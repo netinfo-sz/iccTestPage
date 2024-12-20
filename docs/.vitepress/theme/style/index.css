@@ -1,0 +1,7 @@
+/* index.css */
+
+@import './var.css';
+@import './nav.css';
+@import './rainbow.css';
+@import './custom-block.css';
+@import './card.css';
