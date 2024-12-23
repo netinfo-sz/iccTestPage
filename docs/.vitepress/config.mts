@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { nav, sidebar } from './configs'
 // https://vitepress.dev/reference/site-config
 import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
+import timeline from "vitepress-markdown-timeline"
 
 export default defineConfig({
   // cleanUrls:true, //开启纯净链接
@@ -33,7 +34,7 @@ export default defineConfig({
       // md.use(demoblockPlugin, {
       //   customClass: 'demoblock-custom'
       // })
-
+      md.use(timeline)
       md.use(componentPreview)
       md.use(containerPreview)
     }

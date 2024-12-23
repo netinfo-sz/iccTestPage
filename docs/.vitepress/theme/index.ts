@@ -5,6 +5,7 @@ import Layout from "../../components/Layout.vue";
 import { h } from 'vue'
 import { useData } from 'vitepress'
 import MNavLinks from './components/MNavLinks.vue'
+import "vitepress-markdown-timeline/dist/theme/index.css";
 export default {
   extends: DefaultTheme,
   // Layout,
