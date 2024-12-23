@@ -18,15 +18,15 @@ const actions = [
 const homePages: any = [
   {
     title: '快速开始',
-    link: 'document/概述/版本.html',
+    link: 'document/概述/快速开始.html',
     details: '融合通信中台JS-API，快速开始'
   }, {
     title: '更新记录',
-    link: 'document/概述/版本.html',
+    link: 'document/概述/更新记录.html',
     details: '版本更新记录'
   }, {
     title: '状态码',
-    link: 'document/概述/版本.html',
+    link: 'document/其它/状态码.html',
     details: '返回值说明'
   }
 ]

@@ -10,6 +10,7 @@
       <NotFound />
     </template>
   </Layout>
+  <Log></Log>
 </template>
 
 <script lang="ts" setup>
@@ -18,12 +19,19 @@ import NotFound from "./NotFound.vue";
 import { watch, onMounted, nextTick, provide  } from "vue";
 import { inBrowser, useData } from "vitepress";
 import { setInstance } from './use-fcc'
+import Log from './log/index.vue'
+import {setLog} from './use-log'
+onMounted(() => {
+  setTimeout(() => {
+    if (typeof globalThis !== 'undefined' && globalThis.FCC) {
+      setLog({
+        name: '实例化对象'
+      })
+      setInstance(new globalThis.FCC())
+    }
+  }, 300)
+})
 
-setTimeout(() => {
-  if (typeof globalThis !== 'undefined' && globalThis.FCC) {
-    setInstance(new globalThis.FCC())
-  }
-}, 300)
 // setInstance(new FCC({
 //   meeting: true,
 //   phone: true,

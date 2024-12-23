@@ -15,9 +15,12 @@
 
   /* Feature透明 */
   .VPFeature {
-      border: none;
+      border: 1px solid transparent;
       box-shadow: var(--vp-feature-box-shadow);
       background-color: transparent;
+  }
+  .VPFeature:hover{
+      border-color: var(--vp-c-brand-1);
   }
 
   /* 文档页侧边栏顶部透明 */
