@@ -12,7 +12,7 @@ const image = { light: '/images/pic1.svg', dark: '/images/pic2.svg' }
 const actions = [
   {
     text: '开始',
-    link: randomPage(),
+    link: 'document/概述/前言.html',
   },
 ]
 const homePages: any = [

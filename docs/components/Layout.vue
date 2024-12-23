@@ -27,7 +27,13 @@ onMounted(() => {
       setLog({
         name: '实例化对象'
       })
-      setInstance(new globalThis.FCC())
+      setInstance(new globalThis.FCC({
+        meeting: true,
+        phone: true,
+        IM: true,
+        monitor: true,
+        pointToPointCall: true
+      }))
     }
   }, 300)
 })

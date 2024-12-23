@@ -12,7 +12,8 @@ const login = async () => {
   })
   if (loading.vue) {
     setLog({
-      name: '正在登录...'
+      name: '登录结果',
+      msg: '请先实例化'
     })
     return
   }
