@@ -18,6 +18,13 @@ export const checkInstance = () => {
 }
 
 export const setInstance = (instance: any) => {
+    if (fccInstance) {
+        setLog({
+            name: '实例化',
+            msg: '已实例化'
+        })
+        return
+    }
     fccInstance = instance
 }
 

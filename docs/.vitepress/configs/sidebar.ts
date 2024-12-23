@@ -11,17 +11,17 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       },
       {
         text: '更新日志',
-        link: '/document/概述/版本'
+        link: '/document/概述/更新记录'
       },
       {
-        text: '使用前必读',
+        text: '准备工作',
         link: '/document/概述/准备'
       }
     ]
   },
   {
     text: '快速上手',
-    link: ''
+    link: '/document/概述/快速开始'
   },
   // 接口
   {
@@ -29,6 +29,12 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
     items: [{
       text: '系统接口',
       items: [{
+        text: '实例化',
+        link: '/document/接口/系统/实例化'
+      },{
+        text: '设置服务器',
+        link: '/document/接口/系统/上下文'
+      },{
         text: '登录',
         link: '/document/接口/系统/登录'
       }]

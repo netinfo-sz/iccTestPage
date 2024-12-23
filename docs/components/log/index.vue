@@ -53,6 +53,10 @@ const formatMsg = (msg) => {
   overflow-y: auto;
   padding: 10px;
 }
+.log-item{
+  white-space: wrap;
+  word-break: break-all;
+}
 .split{
   border-top: 1px dotted var(--vp-c-text-3);
   margin: 10px 0;
