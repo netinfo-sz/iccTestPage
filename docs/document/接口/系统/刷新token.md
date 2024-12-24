@@ -1,23 +1,23 @@
-# 电话呼出
-### 电话呼出示例
+# 刷新token
+::: warning 提示
+<!-- warning -->
+使用前提：必须先实例化
+:::
+### 刷新token示例
+临时使用，可以联系融合通信管理员，申请调测账号，正式交付以中台对接token为准
 
 :::preview
-demo-preview=../../../components/interface/phone/callout.vue
+demo-preview=../../../components/interface/system/refreshToken.vue
 :::
 
 ### 使用方法
 ```typescript
-// 发起 PSTN/PLMN 电话呼叫
-fcc.callout({
-  phoneNum: 'xxx'
-})
+// 只需要传递一个参数即可，初始测试可以开放临时账号，后续以token对接为准
+fcc.refreshToken()
 ```
 <!-- **入参说明** -->
 #### 入参说明
-
-| **参数名** | **数据类型** | **选取原则** |**说明** |
-| ---------- | ------------ | ------------ | ------------------ |
-| phoneNum      | string       | 必选         | PSTN/PLMN电话号 |
+无
 
 #### 出参说明
 
@@ -25,7 +25,7 @@ fcc.callout({
 | -------- | -------- | ------------------------------ |
 | status   | number   | 调用接口返回结果的状态码，其含义参考融合通讯中台通用状态码。 |
 | msg      | string   | 给开发者的文字提示信息                    |
-| data     | object   | 返回的信息                          |
+| data     | string   | 返回的信息                          |
 
 <!-- 代码 -->
 
