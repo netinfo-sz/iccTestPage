@@ -4,16 +4,18 @@ import { nav, sidebar } from './configs'
 import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
 import timeline from "vitepress-markdown-timeline"
 
+const BASE_URL = '/iccTestPage/'
+
 export default defineConfig({
   // cleanUrls:true, //开启纯净链接
   title: "融合通信中台JS-API",
   description: "desription",
   lang: 'zh-CN', //语言，可选 en-US
-  base: '/',
+  base: BASE_URL,
   head: [
     // 加载本地 JavaScript 文件
-    ['script', { src: '/libs/FCC-SDK.min.js' }],
-    ['link',{ rel: 'icon', href: '/images/logo.png'}], // 网页icon
+    ['script', { src: BASE_URL + 'libs/FCC-SDK.min.js' }],
+    ['link',{ rel: 'icon', href: BASE_URL + 'images/logo.png'}], // 网页icon
     
   ],
   outDir: './.vitepress/dist', // 输出目录

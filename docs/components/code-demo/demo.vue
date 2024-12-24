@@ -16,7 +16,7 @@
         </div> -->
         <div class="demo-buttons">
           <div class="demo-actions-copy">
-            <span v-show="showTip" class="demo-actions-tip">复制成功!</span>
+            <!-- <span v-show="showTip" class="demo-actions-tip">复制成功!</span> -->
             <copySvg v-show="!showTip" @click="copyCode" title="复制" />
           </div>
           <codeSvg
@@ -43,7 +43,7 @@ import codeSvg from './icons/code.vue'
 // import OnlineEdit from './online-edit'
 import { useCopyCode } from './useCopyCode'
 import { useParseCode } from './useParseCode'
-
+import {ElMessage} from 'element-plus'
 export default {
   props: {
     componentName: String,
@@ -79,7 +79,12 @@ export default {
       props.jsLibsStr,
       props.cssLibsStr
     )
-
+    watch(() => showTip, (val) => {
+      val && ElMessage({
+        message: '复制成功',
+        type: 'success'
+      })
+    })
     return {
       expand,
       toggleExpand,

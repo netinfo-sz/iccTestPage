@@ -28,12 +28,16 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
     text: '接口',
     items: [{
       text: '系统接口',
+      collapsed: true,
       items: [{
         text: '实例化',
         link: '/document/接口/系统/实例化'
       },{
         text: '设置服务器',
         link: '/document/接口/系统/上下文'
+      },{
+        text: '检测MDP',
+        link: '/document/接口/系统/check-mdp'
       },{
         text: '登录',
         link: '/document/接口/系统/登录'
@@ -46,6 +50,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
     }, {
       text: '语音点呼',
+      collapsed: true,
       items: [{
         text: '发起语音点呼',
         link: '/document/接口/语音点呼/发起语音点呼'
@@ -55,6 +60,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
     }, {
       text: '视频点呼',
+      collapsed: true,
       items: [{
         text: '发起视频点呼',
         link: '/document/接口/视频点呼/发起视频点呼'
@@ -64,6 +70,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
     }, {
       text: '电话',
+      collapsed: true,
       items: [{
         text: '电话呼出',
         link: '/document/接口/电话/电话呼出'
@@ -103,6 +110,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
     }, {
       text: '音视频会议',
+      collapsed: true,
       items: [{
         text: '创建音视频会议',
         link: '/document/接口/音视频会议/创建音视频会议'
@@ -124,6 +132,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
     }, {
       text: '监控',
+      collapsed: true,
       items: [{
         text: '打开矩阵监控',
         link: '/document/接口/监控/打开矩阵监控'
