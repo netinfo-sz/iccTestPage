@@ -38,7 +38,7 @@ export default createContentLoader(
           .join(sep);
 
         // 获取发布时间
-        const task = getGitTimestamp('docs\\' + link.replace(/\.html$/i, ".md")).then(
+        const task = getGitTimestamp('docs/' + link.replace(/\.html$/i, ".md")).then(
           (fileTimeInfo) => ({
             title,
             details: src

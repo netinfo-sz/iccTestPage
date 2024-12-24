@@ -9,7 +9,7 @@
 	.st6{fill:#E84A2C;}
 	.st7{clip-path:url(#SVGID_4_);fill:#2E2725;}
 	.st8{opacity:0.25;clip-path:url(#SVGID_4_);fill:#301A0F;}
-	.st9{clip-path:url(#SVGID_4_);fill:#302C27;}
+	<!-- .st9{clip-path:url(#SVGID_4_);fill:#302C27;} -->
 	.st10{opacity:0.9;clip-path:url(#SVGID_4_);fill:#FFFFFF;}
 	.st11{opacity:0.4;clip-path:url(#SVGID_4_);}
 	.st12{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
