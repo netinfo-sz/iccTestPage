@@ -43,6 +43,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 10px 0;
 }
 
 /* 连接 */
@@ -55,4 +56,12 @@ h1 {
 }
 .vp-doc a::after{
   display: none !important;
+}
+.vp-doc h2{
+  margin: 48px 0 16px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+  letter-spacing: -0.02em;
+  line-height: 32px;
+  font-size: 24px;
 }

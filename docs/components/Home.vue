@@ -8,7 +8,7 @@ import VPHero from 'vitepress/dist/client/theme-default/components/VPHero.vue'
 import VPFeatures from 'vitepress/dist/client/theme-default/components/VPFeatures.vue'
 import { data as pages } from '../.vitepress/create.data'
 
-const image = { light: '/images/pic1.svg', dark: '/images/pic2.svg' }
+const image = { light: '/images/pic3.svg', dark: '/images/pic2.svg' }
 const actions = [
   {
     text: '开始',
@@ -49,7 +49,7 @@ function randomPage(): string {
   word-break: break-all;
 }
 
-.vp-doc h2 {
+.VPFeatures .item .box h2 {
   margin: 0;
   border: none;
   padding: 0;
