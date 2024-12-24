@@ -115,8 +115,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
         text: '创建音视频会议',
         link: '/document/接口/音视频会议/创建音视频会议'
       }, {
-        text: ' 会议添加人员',
-        link: '/document/接口/音视频会议/ 会议添加人员'
+        text: '会议添加人员',
+        link: '/document/接口/音视频会议/会议添加人员'
       }, {
         text: '预约会议',
         link: '/document/接口/音视频会议/预约会议'
