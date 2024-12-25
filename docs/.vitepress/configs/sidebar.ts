@@ -165,7 +165,28 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
         link: '/document/接口/监控/打开一键监控'
       }]
     }, {
-      text: '查询信息',
+      text: '查询信息接口',
+      collapsed: true,
+      items: [{
+        text: '获取当前用户状态',
+        link: '/document/接口/查询信息/获取当前用户状态'
+      }, {
+        text: '获取所有用户状态位置数据',
+        link: '/document/接口/查询信息/获取所有用户状态位置数据'
+      }, {
+        text: '查询通话截录屏记录',
+        link: '/document/接口/查询信息/查询通话截录屏记录'
+      }, {
+        text: '查询用户列表',
+        link: '/document/接口/查询信息/查询用户列表'
+      }, {
+        text: '查询监控列表',
+        link: '/document/接口/查询信息/查询监控列表'
+      }, {
+        text: '查询通话记录',
+        link: '/document/接口/查询信息/查询通话记录'
+      }]
+
     },{
       text: '监听事件',
     }]
