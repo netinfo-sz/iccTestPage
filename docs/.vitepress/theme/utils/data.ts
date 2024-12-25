@@ -8,7 +8,7 @@ export const NAV_DATA: NavData[] = [
         icon: 'https://caniuse.com/img/favicon-128.png',
         title: 'Can I use',
         badge: {
-          text: '茂神牛批',
+          text: '',
           type: 'info',
         },
         desc: '前端 API 兼容性查询',
@@ -18,7 +18,7 @@ export const NAV_DATA: NavData[] = [
         icon: 'https://tinypng.com/images/apple-touch-icon.png',
         title: 'TinyPNG',
         badge: {
-          text: '茂神牛批',
+          text: '',
           type: 'tip',
         },
         desc: '在线图片压缩工具',
@@ -28,7 +28,7 @@ export const NAV_DATA: NavData[] = [
         icon: 'https://devtool.tech/logo.svg',
         title: '开发者武器库',
         badge: {
-          text: '茂神牛批',
+          text: '',
           type: 'warning',
         },
         desc: '开发者武器库，做开发者最专业最好用的专业工具箱',
@@ -38,7 +38,7 @@ export const NAV_DATA: NavData[] = [
         icon: 'https://tool.lu/favicon.ico',
         title: '在线工具',
         badge: {
-          text: '茂神牛批',
+          text: '',
           type: 'danger',
         },
         desc: '开发人员的工具箱',
@@ -48,7 +48,7 @@ export const NAV_DATA: NavData[] = [
         icon: '/icons/json-cn.ico',
         title: 'Json 中文网',
         badge: {
-          text: '请给茂茂点点小星星哦',
+          text: '',
           type: 'info',
         },
         desc: 'JSON 在线解析及格式化验证',
@@ -82,7 +82,7 @@ export const NAV_DATA: NavData[] = [
     ]
   },
   {
-    title: '茂茂的站点导航',
+    title: '的站点导航',
     items: [
       {
         icon: '/logo.png',
