@@ -4,7 +4,9 @@
 pnpm > 18
 
 pnpm i
+
 pnpm run dev
+
 pnpm run build
 
 [在线demo](https://fsyldn.github.io/iccTestPage/)
