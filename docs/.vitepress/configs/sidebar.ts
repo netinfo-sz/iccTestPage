@@ -188,7 +188,96 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }]
 
     },{
-      text: '监听事件',
+      text: 'IM消息接口',
+      collapsed: true,
+      items: [{
+        text: '接收IM消息',
+        link: '/document/接口/im/接收IM消息'
+      }, {
+        text: '发送IM消息',
+        link: '/document/接口/im/发送IM消息'
+      }, {
+        text: '查询IM消息记录',
+        link: '/document/接口/im/查询IM消息记录'
+      }, {
+        text: 'IM消息已阅',
+        link: '/document/接口/im/IM消息已阅'
+      }]
+    }, {
+      text: '集群对讲接口',
+      collapsed: true,
+      items: [{
+        text: '订阅群组',
+        link: '/document/接口/群集对讲/订阅群组'
+      }, {
+        text: '取消订阅群组',
+        link: '/document/接口/群集对讲/取消订阅群组'
+      }, {
+        text: '抢话权',
+        link: '/document/接口/群集对讲/抢话权'
+      }, {
+        text: '释放话权',
+        link: '/document/接口/群集对讲/释放话权'
+      }, {
+        text: '强拆群组',
+        link: '/document/接口/群集对讲/强拆群组'
+      }, {
+        text: '添加群组成员',
+        link: '/document/接口/群集对讲/添加群组成员'
+      }, {
+        text: '紧急呼叫',
+        link: '/document/接口/群集对讲/紧急呼叫'
+      }, {
+        text: '订阅GIS终端',
+        link: '/document/接口/群集对讲/订阅GIS终端'
+      }, {
+        text: '查询与自己相关的群组和人员',
+        link: '/document/接口/群集对讲/查询与自己相关的群组和人员'
+      }]
+    }]
+  },
+  {
+    text: '监听事件',
+    collapsed: true,
+    items: [{
+      text: '人员状态变化事件',
+      link: '/document/事件/人员状态变化事件'
+    }, {
+      text: '人员位置变化事件',
+      link: '/document/事件/人员位置变化事件'
+    }, {
+      text: '视频点呼来电事件',
+      link: '/document/事件/视频点呼来电事件'
+    }, {
+      text: '视频点呼接通时会收到此事件',
+      link: '/document/事件/视频点呼接通时会收到此事件'
+    }, {
+      text: '视频点呼收到挂机事件',
+      link: '/document/事件/视频点呼收到挂机事件'
+    }, {
+      text: '打开矩阵监控事件',
+      link: '/document/事件/打开矩阵监控事件'
+    }, {
+      text: '退出矩阵监控事件',
+      link: '/document/事件/退出矩阵监控事件'
+    }, {
+      text: '打开监控事件',
+      link: '/document/事件/打开监控事件'
+    }, {
+      text: '关闭监控事件',
+      link: '/document/事件/关闭监控事件'
+    }, {
+      text: '来电事件',
+      link: '/document/事件/来电事件'
+    }, {
+      text: '来电连接事件',
+      link: '/document/事件/来电连接事件'
+    }, {
+      text: '来电结束事件',
+      link: '/document/事件/来电结束事件'
+    }, {
+      text: '退出会议事件',
+      link: '/document/事件/退出会议事件'
     }]
   },
   {
