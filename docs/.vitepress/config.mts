@@ -16,7 +16,7 @@ export default defineConfig({
     // 加载本地 JavaScript 文件
     ['script', { src: BASE_URL + 'libs/FCC-SDK.min.js' }],
     ['link',{ rel: 'icon', href: BASE_URL + 'images/logo.png'}], // 网页icon
-    ['head', { name: 'algolia-site-verificatio', conent: "2AE05114ADC1DB6E" }]
+    ['meta', { name: 'algolia-site-verificatio', conent: "2AE05114ADC1DB6E" }]
   ],
   outDir: './.vitepress/dist', // 输出目录
   lastUpdated: true, //首次配置不会立即生效，需git提交后爬取时间戳
