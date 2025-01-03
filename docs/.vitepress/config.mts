@@ -107,9 +107,9 @@ export default defineConfig({
       // algolia
       provider: 'algolia',
       options: {
-        appId: '4B3DNBPZ22', // 你的 Application ID
-        apiKey: 'a30db4674ea5c2e334042948ece74096', // 你的Search API Key
-        indexName: 'fsyldn_github_io_4b3dnbpz22_pages', // 你的indexName
+        appId: 'Q5XS1EERSS', // 你的 Application ID
+        apiKey: '6661ce7abead8eee02e198c50aa16897', // 你的Search API Key
+        indexName: 'fsyldnio', // 你的indexName
         translations: {
           button: {
             buttonText: "搜索文档",
