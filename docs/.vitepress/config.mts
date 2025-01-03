@@ -15,6 +15,7 @@ export default defineConfig({
   head: [
     // 加载本地 JavaScript 文件
     ['script', { src: BASE_URL + 'libs/FCC-SDK.min.js' }],
+    // ['script', { src: BASE_URL + 'libs/FCC-SDK.debug.min.js' }],
     ['link',{ rel: 'icon', href: BASE_URL + 'images/logo.png'}], // 网页icon
     ['meta', { name: 'algolia-site-verificatio', conent: "2AE05114ADC1DB6E" }]
   ],
