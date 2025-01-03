@@ -31,10 +31,10 @@ const dialVoice = async () => {
   if (!userAccount.value) {
     setLog({
       name: '语音呼叫',
-      msg: `参数错误,请输入对接信息`
+      msg: `参数错误,请输入呼叫账号`
     })
     ElMessage({
-      message: '请输入对接信息',
+      message: '请输入呼叫账号',
       type: 'warning'
     })
     return

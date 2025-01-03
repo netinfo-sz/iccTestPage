@@ -1,10 +1,10 @@
 # 订阅GIS终端
 
-<!-- ## 订阅GIS终端示例
+## 订阅GIS终端示例
 
 :::preview
-demo-preview=../../../components/interface/im/receive.vue
-::: -->
+demo-preview=../../../components/interface/talkback/gissubScribe.vue
+:::
 
 ## 使用方法
 

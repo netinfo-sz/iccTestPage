@@ -1,4 +1,4 @@
-<script setup name="dialVideo">
+<script setup name="CloseAllWindows">
 import { ref } from 'vue'
 import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
@@ -6,20 +6,17 @@ import { setLog } from '../../use-log'
 const token = ref('')
 const userAccount = ref('')
 const loading = ref(false)
-const dialVideo = async () => {
-  setLog({
-    name: '开始视频呼叫'
-  })
+const closeAllWindows = async () => {
   if (loading.vue) {
     setLog({
-      name: '视频呼叫结果',
+      name: '关闭所有窗口结果',
       msg: '请先实例化'
     })
     return
   }
   if (!await checkInstance()) {
     setLog({
-      name: '视频呼叫',
+      name: '关闭所有窗口',
       msg: '请先实例化'
     })
     ElMessage({
@@ -28,29 +25,16 @@ const dialVideo = async () => {
     })
     return
   }
-  if (!userAccount.value) {
-    setLog({
-      name: '视频呼叫',
-      msg: `参数错误,请输入呼叫账号`
-    })
-    ElMessage({
-      message: '请输入呼叫账号',
-      type: 'warning'
-    })
-    return
-  }
   loading.vue = true
-  let result = await getInstanceFCC().dialVideo({
-    userAccount: userAccount.value
-  })
+  let result = await getInstanceFCC().closeAllWindows()
   setLog({
-    name: '视频呼叫结果',
+    name: '关闭所有窗口结果',
     msg: result
   })
   loading.vue = false
   if (result.status == 200) {
     ElMessage({
-      message: '视频呼叫成功',
+      message: '关闭所有窗口成功',
       type: 'success'
     })
   } else {
@@ -64,11 +48,8 @@ const dialVideo = async () => {
 
 <template>
 <el-form>
-  <el-form-item label="账号">
-    <el-input v-model="userAccount" placeholder="请输入测试账号"></el-input>
-  </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="dialVideo" v-loading="loading">发起视频点呼</el-button>
+    <el-button type="primary" @click="closeAllWindows" v-loading="loading">关闭所有窗口</el-button>
   </el-form-item>
 </el-form>
 </template>

@@ -1,25 +1,24 @@
-<script setup name="dialVideo">
+<script setup name="GroupBreakof">
 import { ref } from 'vue'
 import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
-const token = ref('')
-const userAccount = ref('')
+const groupId = ref('')
 const loading = ref(false)
-const dialVideo = async () => {
+const groupBreakof = async () => {
   setLog({
-    name: '开始视频呼叫'
+    name: '开始强拆群组'
   })
   if (loading.vue) {
     setLog({
-      name: '视频呼叫结果',
+      name: '强拆群组结果',
       msg: '请先实例化'
     })
     return
   }
   if (!await checkInstance()) {
     setLog({
-      name: '视频呼叫',
+      name: '强拆群组',
       msg: '请先实例化'
     })
     ElMessage({
@@ -28,29 +27,29 @@ const dialVideo = async () => {
     })
     return
   }
-  if (!userAccount.value) {
+  if (!groupId.value) {
     setLog({
-      name: '视频呼叫',
-      msg: `参数错误,请输入呼叫账号`
+      name: '强拆群组',
+      msg: `参数错误,请输入群组ID`
     })
     ElMessage({
-      message: '请输入呼叫账号',
+      message: '请输入群组ID',
       type: 'warning'
     })
     return
   }
   loading.vue = true
-  let result = await getInstanceFCC().dialVideo({
-    userAccount: userAccount.value
+  let result = await getInstanceFCC().groupBreakof({
+    groupId: groupId.value
   })
   setLog({
-    name: '视频呼叫结果',
+    name: '强拆群组结果',
     msg: result
   })
   loading.vue = false
   if (result.status == 200) {
     ElMessage({
-      message: '视频呼叫成功',
+      message: '强拆群组成功',
       type: 'success'
     })
   } else {
@@ -64,11 +63,11 @@ const dialVideo = async () => {
 
 <template>
 <el-form>
-  <el-form-item label="账号">
-    <el-input v-model="userAccount" placeholder="请输入测试账号"></el-input>
+  <el-form-item label="群组ID">
+    <el-input v-model="groupId" placeholder="请输入群组ID"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="dialVideo" v-loading="loading">发起视频点呼</el-button>
+    <el-button type="primary" @click="groupBreakof" v-loading="loading">强拆群组</el-button>
   </el-form-item>
 </el-form>
 </template>
