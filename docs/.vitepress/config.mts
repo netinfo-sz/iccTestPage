@@ -103,16 +103,21 @@ export default defineConfig({
     externalLinkIcon: true,
     // 搜索
     search: {
-      provider: 'local',
+      // provider: 'local',
+      // algolia
+      provider: 'algolia',
       options: {
+        appId: '4B3DNBPZ22', // 你的 Application ID
+        apiKey: 'a30db4674ea5c2e334042948ece74096', // 你的Search API Key
+        indexName: 'fsyldn_github_io_4b3dnbpz22_pages', // 你的indexName
         translations: {
           button: {
             buttonText: "搜索文档",
           },
           modal: {
-            displayDetails: "显示详情",
-            noResultsText: "未找到相关结果",
-            resetButtonTitle: "清除",
+            // displayDetails: "显示详情",
+            // noResultsText: "未找到相关结果",
+            // resetButtonTitle: "清除",
             footer: {
               closeText: "关闭",
               selectText: "选择",
@@ -121,6 +126,23 @@ export default defineConfig({
           },
         },
       },
+      // options: {
+      //   translations: {
+      //     button: {
+      //       buttonText: "搜索文档",
+      //     },
+      //     modal: {
+      //       displayDetails: "显示详情",
+      //       noResultsText: "未找到相关结果",
+      //       resetButtonTitle: "清除",
+      //       footer: {
+      //         closeText: "关闭",
+      //         selectText: "选择",
+      //         navigateText: "切换",
+      //       },
+      //     },
+      //   },
+      // },
     },
     //上次更新时间
     lastUpdated: {

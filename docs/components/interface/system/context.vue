@@ -27,7 +27,7 @@ const init = async () => {
     <el-input v-model="path" />
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="init" v-loading="loading">设置</el-button>
+    <el-button type="primary" @click="init" :loading="loading">设置</el-button>
   </el-form-item>
 </el-form>
 </template>

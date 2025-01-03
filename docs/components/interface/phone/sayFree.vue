@@ -10,7 +10,7 @@ const sayFree = async () => {
   setLog({
     name: '坐席示闲'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '坐席示闲结果',
       msg: '请先实例化'
@@ -28,14 +28,14 @@ const sayFree = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().sayFree()
   console.log(result)
   setLog({
     name: '坐席示闲结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '坐席示闲成功',
@@ -53,7 +53,7 @@ const sayFree = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="sayFree" v-loading="loading">坐席示闲</el-button>
+    <el-button type="primary" @click="sayFree" :loading="loading">坐席示闲</el-button>
   </el-form-item>
 </el-form>
 </template>

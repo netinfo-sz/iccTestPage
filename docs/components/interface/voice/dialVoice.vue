@@ -10,7 +10,7 @@ const dialVoice = async () => {
   setLog({
     name: '开始语音呼叫'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '语音呼叫结果',
       msg: '请先实例化'
@@ -39,7 +39,7 @@ const dialVoice = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().dialVoice({
     userAccount: userAccount.value
   })
@@ -47,7 +47,7 @@ const dialVoice = async () => {
     name: '语音呼叫结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '语音呼叫成功',
@@ -68,7 +68,7 @@ const dialVoice = async () => {
     <el-input v-model="userAccount" placeholder="请输入测试账号"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="dialVoice" v-loading="loading">发起语音点呼</el-button>
+    <el-button type="primary" @click="dialVoice" :loading="loading">发起语音点呼</el-button>
   </el-form-item>
 </el-form>
 </template>

@@ -9,7 +9,7 @@ const queryParticipants = async () => {
   setLog({
     name: '开始查询参会成员'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '查询参会成员结果',
       msg: '请先实例化'
@@ -38,7 +38,7 @@ const queryParticipants = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().queryParticipants({
     meetingSno: meetingSno.value
   })
@@ -46,7 +46,7 @@ const queryParticipants = async () => {
     name: '查询参会成员结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '查询参会成员成功',
@@ -67,7 +67,7 @@ const queryParticipants = async () => {
     <el-input v-model="meetingSno" placeholder="请输入测试会议流水号"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="queryParticipants" v-loading="loading">查询参会成员</el-button>
+    <el-button type="primary" @click="queryParticipants" :loading="loading">查询参会成员</el-button>
   </el-form-item>
 </el-form>
 </template>

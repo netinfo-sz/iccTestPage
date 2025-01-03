@@ -26,7 +26,7 @@ const conferenceInquiryFn = async () => {
   setLog({
     name: '开始查询会议列表'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '查询会议列表结果',
       msg: '请先实例化'
@@ -44,7 +44,7 @@ const conferenceInquiryFn = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().conferenceInquiry({
     page: '1', // 当前页数
     pagecount: '10', // 当前页数显示条数
@@ -56,7 +56,7 @@ const conferenceInquiryFn = async () => {
     name: '查询会议列表结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '查询会议列表成功',
@@ -74,7 +74,7 @@ const conferenceInquiryFn = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="showConferenceDiaolog" v-loading="loading">查询会议列表</el-button>
+    <el-button type="primary" @click="showConferenceDiaolog" :loading="loading">查询会议列表</el-button>
   </el-form-item>
 </el-form>
 <el-dialog title="查询会议列表数据" v-model="showDialog">
@@ -96,7 +96,7 @@ const conferenceInquiryFn = async () => {
       </el-date-picker>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="conferenceInquiryFn" v-loading="loading">确定</el-button>
+      <el-button type="primary" @click="conferenceInquiryFn" :loading="loading">确定</el-button>
     </el-form-item>
   </el-form>
 </el-dialog>
