@@ -30,11 +30,15 @@ import { setInstance } from './use-fcc'
 import Log from './log/index.vue'
 import {setLog} from './use-log'
 onMounted(() => {
-  setTimeout(() => {
+  /* eslint-disable-next-line */
+  const env: string = import.meta.env.MODE ?? '';
+  console.log('环境', env)
+  env === 'development' && setTimeout(() => {
     if (typeof globalThis !== 'undefined' && globalThis.FCC) {
       setLog({
         name: '实例化对象'
       })
+     
       setInstance(new globalThis.FCC({
         meeting: true,
         phone: true,

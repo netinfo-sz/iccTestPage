@@ -10,7 +10,7 @@ const getUserInfo = async () => {
   setLog({
     name: '开始查询用户列表'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '查询用户列表结果',
       msg: '请先实例化'
@@ -28,13 +28,13 @@ const getUserInfo = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().getUserInfo()
   setLog({
     name: '查询用户列表结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '查询用户列表成功',
@@ -52,7 +52,7 @@ const getUserInfo = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="getUserInfo" v-loading="loading">查询用户列表</el-button>
+    <el-button type="primary" @click="getUserInfo" :loading="loading">查询用户列表</el-button>
   </el-form-item>
 </el-form>
 </template>

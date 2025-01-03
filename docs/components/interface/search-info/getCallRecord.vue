@@ -10,7 +10,7 @@ const getCallRecord = async () => {
   setLog({
     name: '开始查询通话记录'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '查询通话记录结果',
       msg: '请先实例化'
@@ -39,13 +39,13 @@ const getCallRecord = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().getCallRecord()
   setLog({
     name: '查询通话记录结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '查询通话记录成功',
@@ -66,7 +66,7 @@ const getCallRecord = async () => {
       <el-input v-model="extSysAccount" placeholder="请输入测试账号"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="getCallRecord" v-loading="loading">查询通话记录</el-button>
+    <el-button type="primary" @click="getCallRecord" :loading="loading">查询通话记录</el-button>
   </el-form-item>
 </el-form>
 </template>

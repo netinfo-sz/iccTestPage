@@ -22,13 +22,13 @@ const checkMdp = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().checkMdpExist()
   setLog({
     name: '检测结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200 && result.data && result.data.data == '1') {
     ElMessage({
       message: '已安装',
@@ -46,7 +46,7 @@ const checkMdp = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="checkMdp" v-loading="loading">检测</el-button>
+    <el-button type="primary" @click="checkMdp" :loading="loading">检测</el-button>
   </el-form-item>
 </el-form>
 </template>

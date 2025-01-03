@@ -10,7 +10,7 @@ const getLocation = async () => {
   setLog({
     name: '开始获取所有用户状态位置数据'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '获取所有用户状态位置数据结果',
       msg: '请先实例化'
@@ -28,13 +28,13 @@ const getLocation = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().getLocation()
   setLog({
     name: '获取所有用户状态位置数据结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '获取所有用户状态位置数据成功',
@@ -52,7 +52,7 @@ const getLocation = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="getLocation" v-loading="loading">获取所有用户状态位置数据</el-button>
+    <el-button type="primary" @click="getLocation" :loading="loading">获取所有用户状态位置数据</el-button>
   </el-form-item>
 </el-form>
 </template>

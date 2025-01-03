@@ -103,16 +103,23 @@ export default defineConfig({
     externalLinkIcon: true,
     // 搜索
     search: {
-      provider: 'local',
+      // provider: 'local',
+      // algolia
+      provider: 'algolia',
       options: {
+        appId: 'Q5XS1EERSS', // 你的 Application ID
+        apiKey: '6661ce7abead8eee02e198c50aa16897', // 你的Search API Key
+        // appId: '25RLVC0O93',
+        // apiKey: "71fcbda04ff9e437a8aa7f3d9d03a1c3",
+        indexName: 'fsyldnio', // 你的indexName
         translations: {
           button: {
             buttonText: "搜索文档",
           },
           modal: {
-            displayDetails: "显示详情",
-            noResultsText: "未找到相关结果",
-            resetButtonTitle: "清除",
+            // displayDetails: "显示详情",
+            // noResultsText: "未找到相关结果",
+            // resetButtonTitle: "清除",
             footer: {
               closeText: "关闭",
               selectText: "选择",
@@ -121,6 +128,23 @@ export default defineConfig({
           },
         },
       },
+      // options: {
+      //   translations: {
+      //     button: {
+      //       buttonText: "搜索文档",
+      //     },
+      //     modal: {
+      //       displayDetails: "显示详情",
+      //       noResultsText: "未找到相关结果",
+      //       resetButtonTitle: "清除",
+      //       footer: {
+      //         closeText: "关闭",
+      //         selectText: "选择",
+      //         navigateText: "切换",
+      //       },
+      //     },
+      //   },
+      // },
     },
     //上次更新时间
     lastUpdated: {

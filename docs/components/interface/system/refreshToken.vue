@@ -10,7 +10,7 @@ const refreshToken = async () => {
   setLog({
     name: '开始刷新token'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '刷新token结果',
       msg: '请先实例化'
@@ -28,13 +28,13 @@ const refreshToken = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().refreshToken()
   setLog({
     name: '刷新token结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '刷新token成功',
@@ -52,7 +52,7 @@ const refreshToken = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="refreshToken" v-loading="loading">刷新token</el-button>
+    <el-button type="primary" @click="refreshToken" :loading="loading">刷新token</el-button>
   </el-form-item>
 </el-form>
 </template>

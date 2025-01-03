@@ -10,7 +10,7 @@ const getCallRec = async () => {
   setLog({
     name: '开始查询通话截录屏记录'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '查询通话截录屏记录结果',
       msg: '请先实例化'
@@ -28,13 +28,13 @@ const getCallRec = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().getCallRec()
   setLog({
     name: '查询通话截录屏记录结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '查询通话截录屏记录成功',
@@ -52,7 +52,7 @@ const getCallRec = async () => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="getCallRec" v-loading="loading">查询通话截录屏记录</el-button>
+    <el-button type="primary" @click="getCallRec" :loading="loading">查询通话截录屏记录</el-button>
   </el-form-item>
 </el-form>
 </template>

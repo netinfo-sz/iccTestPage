@@ -13,7 +13,7 @@ const startMeeting = async (type) => {
   setLog({
     name: '开始创建会议'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '创建会议结果',
       msg: '请先实例化'
@@ -31,7 +31,7 @@ const startMeeting = async (type) => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().createConf({
     meetingName: meetingName.value,
     members: JSON.parse(startMeetingList.value), // 会议成员
@@ -41,7 +41,7 @@ const startMeeting = async (type) => {
     name: '创建会议结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '创建会议成功',
@@ -64,8 +64,8 @@ const showStartMeetingDia = (type) => {
 <template>
 <el-form>
   <el-form-item>
-    <el-button type="primary" @click="showStartMeetingDia('3')" v-loading="loading">视频会议</el-button>
-    <el-button type="primary" @click="showStartMeetingDia('1')" v-loading="loading">语音会议</el-button>
+    <el-button type="primary" @click="showStartMeetingDia('3')" :loading="loading">视频会议</el-button>
+    <el-button type="primary" @click="showStartMeetingDia('1')" :loading="loading">语音会议</el-button>
   </el-form-item>
 </el-form>
 <el-dialog title="开始会议数据" v-model="startMeetingFlag" width="36%" center>

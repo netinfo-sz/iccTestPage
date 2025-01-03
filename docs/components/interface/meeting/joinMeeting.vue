@@ -9,7 +9,7 @@ const login = async () => {
   setLog({
     name: '开始加入会议'
   })
-  if (loading.vue) {
+  if (loading.value) {
     setLog({
       name: '加入会议结果',
       msg: '请先实例化'
@@ -38,7 +38,7 @@ const login = async () => {
     })
     return
   }
-  loading.vue = true
+  loading.value = true
   let result = await getInstanceFCC().joinMeeting({
     meetingCode: meetingCode.value,
     PART_DEV: '4', // 是否开摄像头
@@ -50,7 +50,7 @@ const login = async () => {
     name: '加入会议结果',
     msg: result
   })
-  loading.vue = false
+  loading.value = false
   if (result.status == 200) {
     ElMessage({
       message: '加入会议成功',
@@ -71,7 +71,7 @@ const login = async () => {
     <el-input v-model="meetingCode" placeholder="请输入测试会议号"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="login" v-loading="loading">加入会议</el-button>
+    <el-button type="primary" @click="login" :loading="loading">加入会议</el-button>
   </el-form-item>
 </el-form>
 </template>
