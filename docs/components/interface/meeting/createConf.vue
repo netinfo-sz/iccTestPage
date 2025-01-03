@@ -68,7 +68,7 @@ const showStartMeetingDia = (type) => {
     <el-button type="primary" @click="showStartMeetingDia('1')" :loading="loading">语音会议</el-button>
   </el-form-item>
 </el-form>
-<el-dialog title="开始会议数据" v-model="startMeetingFlag">
+<el-dialog title="开始会议数据" v-model="startMeetingFlag" width="36%" center>
   <div>备注:（OBJ_TYPE=1为设备，OBJ_TYPE=2为人员，OBJ_TYPE=3为通讯录）</div>
   <div>members:（要添加的人员设备或者通讯录信息系统接口里获取数据）</div>
   <div>meetingName:（会议名称）</div>
@@ -80,9 +80,9 @@ const showStartMeetingDia = (type) => {
     <el-form-item label="会议数据">
       <el-input v-model="startMeetingList" type="textarea" :rows="5"></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="startMeeting">确定</el-button>
-    </el-form-item>
   </el-form>
+  <template #footer>
+    <el-button type="primary" @click="startMeeting">确定</el-button>
+  </template>
 </el-dialog>
 </template>

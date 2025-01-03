@@ -31,10 +31,10 @@ const callout = async () => {
   if (!phoneNum.value) {
     setLog({
       name: '呼叫',
-      msg: `参数错误,请输入对接信息`
+      msg: `参数错误,请输入号码`
     })
     ElMessage({
-      message: '请输入对接信息',
+      message: '请输入对接号码',
       type: 'warning'
     })
     return

@@ -77,7 +77,7 @@ const conferenceInquiryFn = async () => {
     <el-button type="primary" @click="showConferenceDiaolog" :loading="loading">查询会议列表</el-button>
   </el-form-item>
 </el-form>
-<el-dialog title="查询会议列表数据" v-model="showDialog">
+<el-dialog title="查询会议列表数据" v-model="showDialog" width="36%" center>
   <el-form :model="formData">
     <el-form-item label="会议状态">
       <el-select v-model="formData.meetingStatus">
@@ -95,9 +95,9 @@ const conferenceInquiryFn = async () => {
       >
       </el-date-picker>
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="conferenceInquiryFn" :loading="loading">确定</el-button>
-    </el-form-item>
   </el-form>
+  <template #footer>
+    <el-button type="primary" @click="conferenceInquiryFn" v-loading="loading">确定</el-button>
+  </template>
 </el-dialog>
 </template>
