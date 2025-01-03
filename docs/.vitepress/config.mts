@@ -109,6 +109,8 @@ export default defineConfig({
       options: {
         appId: 'Q5XS1EERSS', // 你的 Application ID
         apiKey: '6661ce7abead8eee02e198c50aa16897', // 你的Search API Key
+        // appId: '25RLVC0O93',
+        // apiKey: "71fcbda04ff9e437a8aa7f3d9d03a1c3",
         indexName: 'fsyldnio', // 你的indexName
         translations: {
           button: {
