@@ -1,6 +1,7 @@
 /* index.css */
 
 @import './var.css';
+@import './code.css';
 @import './nav.css';
 @import './rainbow.css';
 @import './custom-block.css';
@@ -41,5 +42,8 @@
 }
 /* 黑色风格 */
 .dark ::-webkit-scrollbar-track{
+  background: #222;
+}
+.dark ::-webkit-scrollbar-thumb{
   background: #2b313a;
 }
