@@ -9,6 +9,14 @@ import { setLog } from '../../use-log'
 const loading = ref(false)
 const path = ref('/')
 const init = async () => {
+  if (!await checkInstance()) {
+    setLog({
+      name: '登录结果',
+      msg: '请先实例化',
+      type: 'warning'
+    })
+    return
+  }
   setLog({
     name: '设置中台服务端',
     msg: path.value

@@ -13,7 +13,7 @@ const login = async () => {
   if (loading.value) {
     setLog({
       name: '登录结果',
-      msg: '请先实例化'
+      msg: '正在登录中, 请稍后...'
     })
     return
   }

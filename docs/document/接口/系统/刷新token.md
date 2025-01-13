@@ -12,7 +12,6 @@ demo-preview=../../../components/interface/system/refreshToken.vue
 
 ### 使用方法
 ```typescript
-// 只需要传递一个参数即可，初始测试可以开放临时账号，后续以token对接为准
 fcc.refreshToken()
 ```
 <!-- **入参说明** -->

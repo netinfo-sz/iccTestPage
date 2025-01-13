@@ -1,8 +1,10 @@
 // 写日志
+import {ElMessage, MessageParams} from 'element-plus'
 interface ILog {
   name: string
   time?: string | number
   msg?: string | object
+  type?: string
 }
 const changeEvent: Array<any> = []
 let handler = {
@@ -40,6 +42,13 @@ function formatCurrentDateTime(): string {
 }
 
 export const setLog = (log: ILog) => {
+  if (log.type) {
+    const str: any = log.msg?.toString()
+    ElMessage({
+      message: str,
+      type: log.type
+    } as MessageParams)
+  }
   log.time = log.time || formatCurrentDateTime()
   // proxy.logs.unshift(log)
   proxy.logs = [log, ...proxy.logs]; 
