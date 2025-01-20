@@ -44,7 +44,8 @@ onMounted(() => {
         phone: true,
         IM: true,
         monitor: true,
-        pointToPointCall: true
+        pointToPointCall: true,
+        connect: '/'
       }))
     }
   }, 300)
