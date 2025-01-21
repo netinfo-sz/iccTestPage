@@ -64,6 +64,13 @@ export default defineConfig({
           secure: false,
           rewrite: (path) => path.replace('/iccServer', ''),
           ws: true
+        },
+        '/nagent': {
+          target: 'http://172.16.4.93:6677/nagent',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace('/nagent', ''),
+          ws: true
         }
       }
     }

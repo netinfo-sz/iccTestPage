@@ -14,10 +14,7 @@ const checkMdp = async () => {
   if (!await checkInstance()) {
     setLog({
       name: '检测',
-      msg: '请先实例化'
-    })
-    ElMessage({
-      message: '请先实例化',
+      msg: '请先实例化',
       type: 'warning'
     })
     return

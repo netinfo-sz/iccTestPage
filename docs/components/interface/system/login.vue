@@ -20,10 +20,7 @@ const login = async () => {
   if (!await checkInstance()) {
     setLog({
       name: '登录',
-      msg: '请先实例化'
-    })
-    ElMessage({
-      message: '请先实例化',
+      msg: '请先实例化',
       type: 'warning'
     })
     return
@@ -31,10 +28,7 @@ const login = async () => {
   if (!userAccount.value && !token.value) {
     setLog({
       name: '登录',
-      msg: `参数错误,请输入对接信息`
-    })
-    ElMessage({
-      message: '请输入对接信息',
+      msg: `参数错误,请输入对接信息`,
       type: 'warning'
     })
     return
