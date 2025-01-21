@@ -67,13 +67,14 @@ const dialVoice = async () => {
   <el-form-item label="账号">
     <el-input v-model="userAccount" placeholder="请输入对方账号"></el-input>
   </el-form-item>
-  <el-form-item label="locX">
+  <div class="form-title">{{ 'location' }}</div>
+  <el-form-item label="locX" style="margin-left: 15px">
     <el-input v-model="location.locX" placeholder="请输入X轴位置"></el-input>
   </el-form-item>
-  <el-form-item label="locY">
+  <el-form-item label="locY" style="margin-left: 15px">
     <el-input v-model="location.locY" placeholder="请输入Y轴位置"></el-input>
   </el-form-item>
-  <el-form-item label="scale">
+  <el-form-item label="scale" style="margin-left: 15px">
     <el-input v-model="location.scale" placeholder="请输入缩放比率"></el-input>
   </el-form-item>
   <el-form-item>
@@ -81,3 +82,10 @@ const dialVoice = async () => {
   </el-form-item>
 </el-form>
 </template>
+
+<style scoped>
+.form-title{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+</style>

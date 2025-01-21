@@ -19,10 +19,7 @@ const queryParticipants = async () => {
   if (!await checkInstance()) {
     setLog({
       name: '查询参会成员',
-      msg: '请先实例化'
-    })
-    ElMessage({
-      message: '请先实例化',
+      msg: '请先实例化',
       type: 'warning'
     })
     return
@@ -30,10 +27,7 @@ const queryParticipants = async () => {
   if (!meetingSno.value) {
     setLog({
       name: '查询参会成员',
-      msg: `参数错误,请输入会议流水号`
-    })
-    ElMessage({
-      message: '请输入会议流水号',
+      msg: `参数错误,请输入会议流水号`,
       type: 'warning'
     })
     return

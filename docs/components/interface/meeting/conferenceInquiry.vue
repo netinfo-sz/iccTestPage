@@ -4,14 +4,12 @@ import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
 const loading = ref(false)
-const showDialog = ref(false)
 const formData = reactive({
   meetingStatus: '0',
   meetingTime: '',
+  page: '1',
+  pagecount: '10'
 })
-const showConferenceDiaolog = async () => { 
-  showDialog.value = true
-}
 const formatDate = (date) => {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从 0 开始，需要加 1
@@ -21,8 +19,18 @@ const formatDate = (date) => {
   const seconds = String(date.getSeconds()).padStart(2, '0'); // 秒钟
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
+
+const handleInputPage = (value) => {
+  let newValue
+  newValue = value.replace(/[^\d]/g,""); //清除"数字"以外的字符
+  formData.page = newValue
+}
+const handleInputCount = (value) => {
+  let newValue
+  newValue = value.replace(/[^\d]/g,""); //清除"数字"以外的字符
+  formData.pagecount = newValue
+}
 const conferenceInquiryFn = async () => {
-  console.log(formData)
   setLog({
     name: '开始查询会议列表'
   })
@@ -36,18 +44,31 @@ const conferenceInquiryFn = async () => {
   if (!await checkInstance()) {
     setLog({
       name: '查询会议列表',
-      msg: '请先实例化'
+      msg: '请先实例化',
+      type: 'warning'
     })
-    ElMessage({
-      message: '请先实例化',
+    return
+  }
+  if (!formData.page) {
+    setLog({
+      name: '查询会议列表',
+      msg: `参数错误,请输入当前页数`,
+      type: 'warning'
+    })
+    return
+  }
+  if (!formData.pagecount) {
+    setLog({
+      name: '查询会议列表',
+      msg: `参数错误,请输入当前页数显示条数`,
       type: 'warning'
     })
     return
   }
   loading.value = true
   let result = await getInstanceFCC().conferenceInquiry({
-    page: '1', // 当前页数
-    pagecount: '10', // 当前页数显示条数
+    page: formData.page, // 当前页数
+    pagecount: formData.pagecount, // 当前页数显示条数
     meetingStatus: formData.meetingStatus, // 会议状态 0:未开始, 1:正在召开 2:已结束
     startTime: formData.meetingTime?formatDate(formData.meetingTime[0]):'', // 开始时间
     endTime: formData.meetingTime?formatDate(formData.meetingTime[1]):'' // 结束时间
@@ -72,32 +93,32 @@ const conferenceInquiryFn = async () => {
 </script>
 
 <template>
-<el-form>
+<el-form :model="formData">
+  <el-form-item label="当前页数">
+    <el-input v-model.number="formData.page" placeholder="请输入当前页数" @input="handleInputPage"></el-input>
+  </el-form-item>
+  <el-form-item label="显示条数">
+    <el-input v-model.number="formData.pagecount" placeholder="请输入当前页数显示条数" @input="handleInputCount"></el-input>
+  </el-form-item>
+  <el-form-item label="会议状态">
+    <el-radio-group v-model="formData.meetingStatus">
+      <el-radio label="">全部</el-radio>
+      <el-radio label="0">未开始</el-radio>
+      <el-radio label="1">正在召开</el-radio>
+      <el-radio label="2">已结束</el-radio>
+    </el-radio-group>
+  </el-form-item>
+  <el-form-item label="会议时间">
+    <el-date-picker  
+      v-model="formData.meetingTime"
+      type="datetimerange"
+      start-placeholder="开始时间"
+      end-placeholder="结束时间"
+    >
+    </el-date-picker>
+  </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="showConferenceDiaolog" :loading="loading">查询会议列表</el-button>
+    <el-button type="primary" @click="conferenceInquiryFn" :loading="loading">查询会议列表</el-button>
   </el-form-item>
 </el-form>
-<el-dialog title="查询会议列表数据" v-model="showDialog" width="36%" center>
-  <el-form :model="formData">
-    <el-form-item label="会议状态">
-      <el-select v-model="formData.meetingStatus">
-        <el-option label="未开始" value="0" />
-        <el-option label="正在召开" value="1" />
-        <el-option label="已结束" value="2" />
-      </el-select>
-    </el-form-item>
-    <el-form-item label="会议时间">
-      <el-date-picker  
-        v-model="formData.meetingTime"
-        type="datetimerange"
-        start-placeholder="开始时间"
-        end-placeholder="结束时间"
-      >
-      </el-date-picker>
-    </el-form-item>
-  </el-form>
-  <template #footer>
-    <el-button type="primary" @click="conferenceInquiryFn" v-loading="loading">确定</el-button>
-  </template>
-</el-dialog>
 </template>
