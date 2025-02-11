@@ -3,10 +3,9 @@ import { ref } from 'vue'
 import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
+import matrixDeviceList from './matrixList.vue'
 const loading = ref(false)
-const showDialog = ref(false)
-const divceList = ref(null)
-const enterMatrixList = ref([{
+const matrixList = ref([{
   deviceCode: "08594172951682810101#f549ae3dca014060b2b7cf3d17d03b32",
   deviceId: "912910",
   deviceName: "办公A区西北"
@@ -15,10 +14,6 @@ const enterMatrixList = ref([{
   deviceId: "912909",
   deviceName: "走廊西-东向"
 }])
-const enterMatrix = () => {
-  showDialog.value = true
-  divceList.value = JSON.stringify(enterMatrixList.value)
-}
 const confirmEnterMatrix = async () => {
   setLog({
     name: '开始打开矩阵监控'
@@ -42,7 +37,7 @@ const confirmEnterMatrix = async () => {
     return
   }
   loading.vue = true
-  let result = await getInstanceFCC().enterMatrix(JSON.parse(divceList.value))
+  let result = await getInstanceFCC().enterMatrix(matrixList.value)
   setLog({
     name: '打开矩阵监控结果',
     msg: result
@@ -79,19 +74,24 @@ const closeMatrix = async () => {
     })
   }
 }
+const addMeeting = () => {
+  matrixList.value.push({
+    deviceCode: '',
+    deviceId: '',
+    deviceName: ''
+  })
+}
+const delDivice = (index) => {
+  matrixList.value.splice(index, 1)
+}
 </script>
 
 <template>
 <el-form>
+  <matrixDeviceList :matrixList="matrixList" @add-divce="addMeeting" @del-divice="delDivice"></matrixDeviceList>
   <el-form-item>
-    <el-button type="primary" @click="enterMatrix" v-loading="loading">打开矩阵监控</el-button>
+    <el-button type="primary" @click="confirmEnterMatrix" >打开矩阵监控</el-button>
     <el-button type="primary" @click="closeMatrix" v-loading="loading">关闭矩阵监控</el-button>
   </el-form-item>
 </el-form>
-<el-dialog title="监控设备数据" v-model="showDialog" width="36%" center>
-  <el-input v-model="divceList" type="textarea" :rows="5"></el-input>
-  <template #footer>
-    <el-button type="primary" @click="confirmEnterMatrix">确定</el-button>
-  </template>
-</el-dialog>
 </template>
