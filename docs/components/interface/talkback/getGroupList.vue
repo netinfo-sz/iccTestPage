@@ -10,14 +10,14 @@ const getGroupList = async () => {
   })
   if (loading.vue) {
     setLog({
-      name: '查询与自己相关的群组和人员结果',
+      name: '查询自己相关群组结果',
       msg: '请先实例化'
     })
     return
   }
   if (!await checkInstance()) {
     setLog({
-      name: '查询与自己相关的群组和人员',
+      name: '查询自己相关群组',
       msg: '请先实例化'
     })
     ElMessage({
@@ -29,13 +29,13 @@ const getGroupList = async () => {
   loading.vue = true
   let result = await getInstanceFCC().getGroupList()
   setLog({
-    name: '查询与自己相关的群组和人员结果',
+    name: '查询自己相关群组结果',
     msg: result
   })
   loading.vue = false
   if (result.status == 200) {
     ElMessage({
-      message: '查询与自己相关的群组和人员成功',
+      message: '查询自己相关群组成功',
       type: 'success'
     })
   } else {
