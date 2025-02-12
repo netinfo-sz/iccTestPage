@@ -4,7 +4,7 @@ import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
 const token = ref('')
-const userAccount = ref('')
+const callSno = ref('')
 const loading = ref(false)
 const getCallRec = async () => {
   setLog({
@@ -21,7 +21,7 @@ const getCallRec = async () => {
     setLog({
       name: '查询通话截录屏记录',
       msg: '请先实例化'
-    })
+  })
     ElMessage({
       message: '请先实例化',
       type: 'warning'
@@ -29,7 +29,9 @@ const getCallRec = async () => {
     return
   }
   loading.value = true
-  let result = await getInstanceFCC().getCallRec()
+  let result = await getInstanceFCC().getCallRec({
+    CALL_SNO: callSno.value
+  })
   setLog({
     name: '查询通话截录屏记录结果',
     msg: result
@@ -51,6 +53,9 @@ const getCallRec = async () => {
 
 <template>
 <el-form>
+  <el-form-item label="通话流水号">
+    <el-input v-model="callSno" placeholder="通话流水号"></el-input>
+  </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="getCallRec" :loading="loading">查询通话截录屏记录</el-button>
   </el-form-item>

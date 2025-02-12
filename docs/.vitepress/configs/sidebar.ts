@@ -157,10 +157,13 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }, {
         text: '摄像头云控制',
         link: '/document/接口/监控/摄像头云控制'
-      }, {
-        text: '监控墙推送',
-        link: '/document/接口/监控/监控墙推送'
-      }, {
+      }, 
+      // 和打开监控墙重复
+      // {
+      //   text: '监控墙推送',
+      //   link: '/document/接口/监控/监控墙推送'
+      // }, 
+      {
         text: '打开一键监控',
         link: '/document/接口/监控/打开一键监控'
       }]
