@@ -1,10 +1,10 @@
 # 查询IM消息记录
 
-<!-- ## 查询IM消息记录示例
+## 查询IM消息记录示例
 
 :::preview
 demo-preview=../../../components/interface/im/inquire.vue
-::: -->
+:::
 
 ## 使用方法
 
@@ -13,8 +13,8 @@ demo-preview=../../../components/interface/im/inquire.vue
 fcc.searchIM({
   page: 1,
   pagecount: 20,
-  SEND_USER: '239',
-  QUERY_TYPE = '1'
+  dialogId: '239',
+  QUERY_TYPE: '1' // 1是点对点，2是群组消息
 }).then(res => {
   console.log(res)
 })
@@ -28,8 +28,7 @@ fcc.searchIM({
 | ----------- | ------------ | ------------ | --------------------------------------------- |
 | page       | number       | 必选         | 页数                        |
 | pagecount | number       | 必选         | 每页条数 |
-| SEND_USER | string       | 必选         | QUERY_TYPE为1时（取对方的USER_CODE）QUERY_TYPE为2必选 |
-| QUERY_TYPE | string       | 必选         | 消息类型1是点对点，2是群组消息 |
+| dialogId | string       | 必选         | 对话框Id |
 
 ### 出参说明
 

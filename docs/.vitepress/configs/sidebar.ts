@@ -194,22 +194,28 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       text: 'IM消息接口',
       collapsed: true,
       items: [{
-        text: '接收IM消息',
-        link: '/document/接口/im/接收IM消息'
-      }, {
         text: '发送IM消息',
         link: '/document/接口/im/发送IM消息'
       }, {
+        text: '接收IM消息',
+        link: '/document/接口/im/接收IM消息'
+      }, {
         text: '查询IM消息记录',
         link: '/document/接口/im/查询IM消息记录'
-      }, {
-        text: 'IM消息已阅',
-        link: '/document/接口/im/IM消息已阅'
-      }]
+      }
+      // {
+      //   text: 'IM消息已阅',
+      //   link: '/document/接口/im/IM消息已阅'
+      // }
+    ]
     }, {
       text: '集群对讲接口',
       collapsed: true,
-      items: [{
+      items: [
+      {
+        text: '查询与自己相关的群组和人员',
+        link: '/document/接口/群集对讲/查询与自己相关的群组和人员'
+      }, {
         text: '订阅群组',
         link: '/document/接口/群集对讲/订阅群组'
       }, {
@@ -233,9 +239,6 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       }, {
         text: '订阅GIS终端',
         link: '/document/接口/群集对讲/订阅GIS终端'
-      }, {
-        text: '查询与自己相关的群组和人员',
-        link: '/document/接口/群集对讲/查询与自己相关的群组和人员'
       }]
     }]
   },

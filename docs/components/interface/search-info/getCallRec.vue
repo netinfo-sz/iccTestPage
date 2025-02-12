@@ -28,6 +28,17 @@ const getCallRec = async () => {
     })
     return
   }
+  if (!callSno.value) {
+    setLog({
+      name: '查询通话记录',
+      msg: `参数错误,请输入通话流水号`
+    })
+    ElMessage({
+      message: '请输入通话流水号',
+      type: 'warning'
+    })
+    return
+  }
   loading.value = true
   let result = await getInstanceFCC().getCallRec({
     CALL_SNO: callSno.value

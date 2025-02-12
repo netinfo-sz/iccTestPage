@@ -1,11 +1,11 @@
 # 发送IM消息
 
 
-<!-- ## 发送IM消息示例
+## 发送IM消息示例
 
 :::preview
 demo-preview=../../../components/interface/im/send.vue
-::: -->
+:::
 
 ## 使用方法
 
@@ -30,7 +30,7 @@ fcc.sendIM({
 | ----------- | ------------ | ------------ | --------------------------------------------- |
 | msgType       | number       | 必选         | 接收消息的对象类型: 1-文字;2-图片;3-文件   |
 | toUserId | string       | 必选         | 接收消息的对象编号USER_CODE |
-| msgContent | string       | 非必选         | 要发送的消息类型为图片或者文件的不传 |
+| msgContent | string       | 必选         | 要发送的消息类型为图片或者文件的不传 |
 | file | object       | 非必选         | 要发送消息类型为图片或者文件的时候传file对象过来 |
 
 ### 出参说明

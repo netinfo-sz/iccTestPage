@@ -8,16 +8,17 @@
 
 :::
 
-<!-- ## 接收IM消息示例
+## 接收IM消息示例
 
 :::preview
 demo-preview=../../../components/interface/im/receive.vue
-::: -->
+:::
 
 ## 使用方法
 
 ```typescript
-// 监听 ‘OnIMRead’事件
+// 监听 ‘OnIMRead’事件，当前用户给单个其他用户发送IM消息后
+// 如果对方已读，则当前用户会收到此事件
 fcc.listen('OnIMRead', data => {
   console.log(data)
 })

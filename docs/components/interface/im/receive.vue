@@ -3,23 +3,18 @@ import { ref } from 'vue'
 import {ElMessage} from 'element-plus'
 import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
-const token = ref('')
-const userAccount = ref('')
 const loading = ref(false)
-const login = async () => {
-  setLog({
-    name: '开始登录'
-  })
+const initListen = async () => {
   if (loading.value) {
     setLog({
-      name: '登录结果',
+      name: '订阅结果',
       msg: '请先实例化'
     })
     return
   }
   if (!await checkInstance()) {
     setLog({
-      name: '登录',
+      name: '订阅IM消息',
       msg: '请先实例化'
     })
     ElMessage({
@@ -28,30 +23,18 @@ const login = async () => {
     })
     return
   }
-  if (!userAccount.value && !token.value) {
-    setLog({
-      name: '登录',
-      msg: `参数错误,请输入对接信息`
-    })
-    ElMessage({
-      message: '请输入对接信息',
-      type: 'warning'
-    })
-    return
-  }
   loading.value = true
-  let result = await getInstanceFCC().login(
-    token.value ? {token: token.value} : {
-    userAccount: userAccount.value
+  let result = await getInstanceFCC().listen('OnIMRead', (data) => {
+    // 业务逻辑
   })
   setLog({
-    name: '登录结果',
+    name: '订阅OnIMRead消息结果',
     msg: result
   })
   loading.value = false
   if (result.status == 200) {
     ElMessage({
-      message: '登录成功',
+      message: '订阅OnIMRead消息成功',
       type: 'success'
     })
   } else {
@@ -60,22 +43,32 @@ const login = async () => {
       type: 'info'
     })
   }
+  let result1 = await getInstanceFCC().listen('OnIMMessage', (data) => {
+    // 业务逻辑
+  })
+  setLog({
+    name: '订阅OnIMMessage消息成功结果',
+    msg: result1
+  })
+  loading.value = false
+  if (result1.status == 200) {
+    ElMessage({
+      message: '订阅OnIMMessage消息成功',
+      type: 'success'
+    })
+  } else {
+    ElMessage({
+      message: result1.msg,
+      type: 'info'
+    })
+  }
 }
 </script>
 
 <template>
 <el-form>
-  <el-form-item label="token">
-    <el-input v-model="token" placeholder="请输入对接token"></el-input>
-  </el-form-item>
-  <el-form-item label="或">
-
-  </el-form-item>
-  <el-form-item label="账号">
-    <el-input v-model="userAccount" placeholder="请输入测试账号"></el-input>
-  </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="login" :loading="loading">登录</el-button>
+    <el-button type="primary" @click="initListen" :loading="loading">订阅IM消息</el-button>
   </el-form-item>
 </el-form>
 </template>
