@@ -255,11 +255,11 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       text: '视频点呼来电事件',
       link: '/document/事件/视频点呼来电事件'
     }, {
-      text: '视频点呼接通时会收到此事件',
-      link: '/document/事件/视频点呼接通时会收到此事件'
+      text: '视频点呼接通事件',
+      link: '/document/事件/视频点呼接通事件'
     }, {
-      text: '视频点呼收到挂机事件',
-      link: '/document/事件/视频点呼收到挂机事件'
+      text: '视频点呼挂机事件',
+      link: '/document/事件/视频点呼挂机事件'
     }, {
       text: '打开矩阵监控事件',
       link: '/document/事件/打开矩阵监控事件'
