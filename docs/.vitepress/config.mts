@@ -66,7 +66,7 @@ export default defineConfig({
           ws: true
         },
         '/nagent': {
-          target: 'http://172.16.4.93:6677/nagent',
+          target: 'http://172.16.7.245:6677/nagent',
           changeOrigin: true,
           secure: false,
           rewrite: (path) => path.replace('/nagent', ''),

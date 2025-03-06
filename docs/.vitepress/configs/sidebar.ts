@@ -72,14 +72,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = [
       text: '电话',
       collapsed: true,
       items: [{
+        text: '电话操作示例',
+        link: '/document/接口/电话/电话操作示例'
+      }, {
         text: '电话呼出',
         link: '/document/接口/电话/电话呼出'
       }, {
         text: '电话接听',
         link: '/document/接口/电话/电话接听'
-      }, {
-        text: '电话拒接',
-        link: '/document/接口/电话/电话拒接'
       }, {
         text: '电话挂机',
         link: '/document/接口/电话/电话挂机'
