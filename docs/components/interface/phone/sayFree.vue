@@ -30,7 +30,6 @@ const sayFree = async () => {
   }
   loading.value = true
   let result = await getInstanceFCC().sayFree()
-  console.log(result)
   setLog({
     name: '坐席示闲结果',
     msg: result

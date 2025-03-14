@@ -60,6 +60,27 @@ const dialVoice = async () => {
     })
   }
 }
+const dialVoiceHangUp = async () => {
+  setLog({
+    name: '挂断语音呼叫'
+  })
+  let result = await getInstanceFCC().dialVoiceHangUp()
+  setLog({
+    name: '挂断语音呼叫结果',
+    msg: result
+  })
+  if (result.status == 200) {
+    ElMessage({
+      message: '挂断语音呼叫成功',
+      type: 'success'
+    })
+  } else {
+    ElMessage({
+      message: result.msg,
+      type: 'info'
+    })
+  }
+}
 </script>
 
 <template>
@@ -79,6 +100,7 @@ const dialVoice = async () => {
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="dialVoice" :loading="loading">发起语音点呼</el-button>
+    <el-button type="danger" @click="dialVoiceHangUp" :loading="loading">挂断语音点呼</el-button>
   </el-form-item>
 </el-form>
 </template>

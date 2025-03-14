@@ -30,7 +30,6 @@ const sayBusy = async () => {
   }
   loading.value = true
   let result = await getInstanceFCC().sayBusy()
-  console.log(result)
   setLog({
     name: '坐席示忙结果',
     msg: result

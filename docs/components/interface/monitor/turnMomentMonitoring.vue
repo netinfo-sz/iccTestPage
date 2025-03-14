@@ -40,7 +40,6 @@ const enterMatrix = async () => {
     return
   }
   loading.vue = true
-  console.log('=========heheh========', matrixInfo.value)
   let result = await getInstanceFCC().turnMomentMonitoring(matrixInfo.value)
   setLog({
     name: '打开矩阵监控墙结果',
