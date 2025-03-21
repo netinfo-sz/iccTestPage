@@ -5,6 +5,7 @@ import { checkInstance, getInstanceFCC } from '../../use-fcc'
 import { setLog } from '../../use-log'
 const token = ref('')
 const userAccount = ref('')
+const password = ref('')
 const loading = ref(false)
 const login = async () => {
   setLog({
@@ -36,7 +37,8 @@ const login = async () => {
   loading.value = true
   let result = await getInstanceFCC().login(
     token.value ? {token: token.value} : {
-    userAccount: userAccount.value
+    userAccount: userAccount.value,
+    password: password.value
   })
   setLog({
     name: '登录结果',
@@ -67,6 +69,9 @@ const login = async () => {
   </el-form-item>
   <el-form-item label="账号">
     <el-input v-model="userAccount" placeholder="请输入测试账号"></el-input>
+  </el-form-item>
+  <el-form-item label="密码">
+    <el-input v-model="password" placeholder="请输入测试密码"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="login" :loading="loading">登录</el-button>
