@@ -9,4 +9,6 @@ pnpm run dev
 
 pnpm run build
 
-[在线demo](https://fsyldn.github.io/iccTestPage/)
+[在线demo](https://netinfo-sz.github.io/iccTestPage/)
+
+### By 深圳星网信通科技股份有限公司

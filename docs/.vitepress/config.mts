@@ -82,7 +82,7 @@ export default defineConfig({
       // message: 'Released under the MIT License.', 
       // copyright: 'Copyright © 2019-2023 present Evan You', 
       // 自动更新时间
-      copyright: `Copyright © 2019-${new Date().getFullYear()} XW`, 
+      copyright: `Copyright © 2019-${new Date().getFullYear()} 深圳星网信通科技股份有限公司`, 
     }, 
     // siteTitle: false, //标题隐藏
     // https://vitepress.dev/reference/default-theme-config
