@@ -58,20 +58,7 @@ export default defineConfig({
     },
     server: {
       proxy: {
-        '/iccServer': {
-          target: 'http://172.16.7.97:82/iccServer',
-          changeOrigin: true,
-          secure: false,
-          rewrite: (path) => path.replace('/iccServer', ''),
-          ws: true
-        },
-        '/nagent': {
-          target: 'http://172.16.7.245:6677/nagent',
-          changeOrigin: true,
-          secure: false,
-          rewrite: (path) => path.replace('/nagent', ''),
-          ws: true
-        }
+
       }
     }
   },
